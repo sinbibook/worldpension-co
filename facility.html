@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 placeholder 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title data-page-title>속초 월드 애견동반 (유료) 펜션 - 시설안내</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속초 월드 애견동반 (유료) 펜션 - 시설안내" />
+  <meta property="og:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta property="og:url" content="https://worldpension.co.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="속초 월드 애견동반 (유료) 펜션 - 시설안내" />
+  <meta name="twitter:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta name="naver-site-verification" content="e06af8608527e39b2ae9b90f5edf19c917ea84be" />
+  <meta name="google-site-verification" content="Mgnk_J880xVKpN-zFjV7J69ZWFahx2Rwzp0V9rnMcJs" />
+</head>
+
+  <body oncontextmenu="return false;" onselectstart="return false" ondragstart="return false;">
+    <div id="wrap">
+      <div id="header-wrap"></div>
+
+      <div id="container">
+        <!-- 원본 special1~7.html (부대시설). ?id= 로 시설을 고르고, 없으면 첫 번째.
+             ⚠️ 백오피스 페이지 키는 'facility' 그대로다 (파일명만 facility.html). -->
+        <section id="content" class="sub3_1 sub_special">
+          <div class="sub_visual_wide visual">
+            <div class="main_txt_top">
+              <span>Special Information</span>
+              <!-- data-* 속성 : data-special-name-en (facilities[current].nameEn → name) -->
+              <strong data-special-name-en></strong>
+              <!-- data-* 속성 : data-special-name (facilities[current].name)
+                   nameEn 이 없어 strong 이 한글명으로 폴백되면 중복이라 숨긴다 -->
+              <p data-special-name></p>
+            </div>
+            <div class="arw_box">
+              <div class="arw_left"><img src="images/spe_le.png" alt="이전" /></div>
+              <div class="arw_right"><img src="images/spe_ri.png" alt="다음" /></div>
+            </div>
+            <a href="#" class="scroll_down"><img src="images/scroll_down.png" alt="스크롤" /></a>
+            <div class="sub_visual_box">
+              <div class="swiper-container">
+                <!-- data-* 속성 : data-special-hero-slides | 동적 매핑 필요
+                     property.facilities[current].images (배경 슬라이드) -->
+                <div class="swiper-wrapper" data-special-hero-slides></div>
+              </div>
+            </div>
+          </div>
+          <!--// sub_visual -->
+
+          <div class="sub_cate_wrap">
+            <div class="sub_inner">
+              <!-- data-* 속성 : data-special-nav | 동적 매핑 필요
+                   property.facilities[] → li 동적 생성 (현재 시설 .on, 이름 없으면 skip) -->
+              <ul data-special-nav>
+                <!-- MAPPER: facilities[] → <li><a href="./facility.html?id={id}"> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub_cont">
+            <div class="sub_inner">
+              <div class="sub_title2">
+                <!-- data-* 속성 : data-special-name-en -->
+                <h3 data-special-name-en></h3>
+                <!-- data-* 속성 : data-special-name -->
+                <p data-special-name></p>
+              </div>
+
+              <!-- data-* 속성 : data-special-description
+                   facilities[current].description → 폴백 usageGuide -->
+              <p class="notice_txt" data-special-description></p>
+
+              <!-- data-* 속성 : data-special-images | 동적 매핑 필요 (li 2개 고정) -->
+              <ul class="sub_img_box sub_img_box_align" data-special-images>
+                <li class="img"></li>
+                <li class="img"></li>
+              </ul>
+
+              <div class="sub_img_box_wide">
+                <!-- data-* 속성 : data-special-wide-image -->
+                <div class="img" data-special-wide-image></div>
+              </div>
+            </div>
+          </div>
+          <!--// sub_cont -->
+        </section>
+      </div>
+
+      <div id="footer-wrap"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/data-mapper/pages/facility-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/facility.js"></script>
+  </body>
+</html>

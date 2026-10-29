@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 placeholder 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title data-page-title>속초 월드 애견동반 (유료) 펜션</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속초 월드 애견동반 (유료) 펜션" />
+  <meta property="og:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta property="og:url" content="https://worldpension.co.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="속초 월드 애견동반 (유료) 펜션" />
+  <meta name="twitter:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta name="naver-site-verification" content="e06af8608527e39b2ae9b90f5edf19c917ea84be" />
+  <meta name="google-site-verification" content="Mgnk_J880xVKpN-zFjV7J69ZWFahx2Rwzp0V9rnMcJs" />
+</head>
+
+  <body oncontextmenu="return false;" onselectstart="return false" ondragstart="return false;">
+    <div id="wrap">
+      <div id="header-wrap"></div>
+
+      <div id="container">
+        <!-- 원본 travel.html (주변여행지) -->
+        <section id="content" class="sub5_1 sub_travel">
+          <!-- data-* 속성 : data-nearby-hero-image
+               pages.nearbyAttractions.sections[0].hero.images[isSelected][0].url -->
+          <div class="sub_visual" data-nearby-hero-image>
+            <div class="txt_box">
+              <h3>TRAVEL</h3>
+              <!-- data-* 속성 : data-property-caption -->
+              <span data-property-caption="{name} 주변 여행지"></span>
+            </div>
+          </div>
+          <!--// sub_visual -->
+
+          <div class="sub_cate_wrap">
+            <div class="sub_inner">
+              <ul>
+                <li class="on"><a href="./nearby-attractions.html">주변여행지</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub_cont sub_inner">
+            <div class="sub_title2">
+              <h3 data-nearby-title>Tourist Spot</h3>
+              <p data-nearby-description>펜션 근처의 주요 관광지 정보를 확인해 보세요.</p>
+            </div>
+            <div class="travel_list">
+              <!-- data-* 속성 : data-nearby-attractions-list | 동적 매핑 필요
+                   pages.nearbyAttractions.sections[0].about[] -->
+              <ul data-nearby-attractions-list>
+                <!-- MAPPER: about[i] → li > img + strong + p(> span) -->
+              </ul>
+            </div>
+          </div>
+          <!--// sub_cont -->
+        </section>
+      </div>
+
+      <div id="footer-wrap"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/data-mapper/pages/nearby-attractions-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/nearby-attractions.js"></script>
+  </body>
+</html>

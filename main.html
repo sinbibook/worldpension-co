@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 placeholder 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title data-page-title>속초 월드 애견동반 (유료) 펜션 - 숙소소개</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속초 월드 애견동반 (유료) 펜션 - 숙소소개" />
+  <meta property="og:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta property="og:url" content="https://worldpension.co.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="속초 월드 애견동반 (유료) 펜션 - 숙소소개" />
+  <meta name="twitter:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta name="naver-site-verification" content="e06af8608527e39b2ae9b90f5edf19c917ea84be" />
+  <meta name="google-site-verification" content="Mgnk_J880xVKpN-zFjV7J69ZWFahx2Rwzp0V9rnMcJs" />
+</head>
+
+  <body oncontextmenu="return false;" onselectstart="return false" ondragstart="return false;">
+    <div id="wrap">
+      <div id="header-wrap"></div>
+
+      <div id="container">
+        <!-- 메뉴명은 "펜션소개"를 유지하되, 페이지 내용은 원본 about.html(펜션소개) +
+             view.html(외경보기) 를 합친 구조다. 백오피스 편집 화면이 8개뿐이라
+             view 에 대응하는 화면이 없어 main 하나로 합쳤다.
+             섹션 클래스 sub1_2 는 원본 view.html 과 동일 — .land_btm 의 display_main 을 숨기고
+             display_view 만 노출하는 규칙이 여기에 걸려 있다. -->
+        <section id="content" class="sub1_2 sub_about">
+          <div class="sub_visual_wide visual">
+            <div class="main_txt_top">
+              <!-- 히어로 문구는 전부 정적이다 (room.html 과 같은 규약).
+                   .main_txt_top strong 은 --font-en-main 필기체 75px 슬롯이라
+                   한글이 들어가면 깨진다. 숙소별 인삿말은 아래 .about_top 이 맡는다. -->
+              <span>WELCOME TO PENSION</span>
+              <strong>About</strong>
+              <p data-property-caption="{name}의 이야기를 소개합니다."></p>
+            </div>
+            <div class="arw_box">
+              <div class="arw_left"><img src="images/spe_le.png" alt="이전" /></div>
+              <div class="arw_right"><img src="images/spe_ri.png" alt="다음" /></div>
+            </div>
+            <a href="#" class="scroll_down"><img src="images/scroll_down.png" alt="스크롤" /></a>
+            <div class="sub_visual_box">
+              <div class="swiper-container">
+                <!-- data-* 속성 : data-main-hero-slides | 동적 매핑 필요
+                     property.images[].exterior[isSelected] (숙소외경이미지)
+                     ⚠️ main.hero.images 가 아니다 — 그쪽은 아래 .about_top 인삿말 3장이다 -->
+                <div class="swiper-wrapper" data-main-hero-slides></div>
+              </div>
+            </div>
+          </div>
+          <!--// sub_visual -->
+
+          <div class="sub_cate_wrap">
+            <div class="sub_inner">
+              <ul>
+                <li class="on"><a href="./main.html">펜션소개</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub_cont">
+            <!-- s: about_top — 인삿말 (원본 about.html 상단 블록)
+                 ⚠️ .about_top 은 grid 한 칸에 이미지 3장과 .about_txt_box 를 겹쳐 놓는다. 글은 우측 상단(폭 30%),
+                    이미지는 칸 바닥. 글이 길면 칸이 늘어 이미지가 아래로 밀린다 (글 잘림 · 겹침 없음).
+                    strong 은 --font-ko-main 30px 슬롯이라 한글 여러 줄이 정상이다. -->
+            <div class="about_top sub_inner">
+              <!-- data-* 속성 : data-main-hero-images | 동적 매핑 필요
+                   main.hero.images[isSelected] — img01(30%/450px) + img02·03(22%/220px) -->
+              <div class="img_box" data-main-hero-images>
+                <div class="img01"></div>
+                <div class="img02"></div>
+                <div class="img03"></div>
+              </div>
+              <div class="about_txt_box">
+                <!-- data-* 속성 : data-main-hero-title (main.hero.title) -->
+                <strong data-main-hero-title></strong>
+                <!-- data-* 속성 : data-main-hero-description
+                     main.hero.description → 폴백 property.subtitle -->
+                <p data-main-hero-description></p>
+              </div>
+            </div>
+            <!--// about_top -->
+
+            <!-- s: about_img — WELCOME 배너
+                 'WELCOME,' 워터마크는 .sub_about .about_img:before 가 CSS 로 그린다.
+                 ⚠️ .parallax-window 에 background-image 를 직접 주지 말 것
+                    (.parallax-mirror 가 z-index:-100 이라 요소 자신의 배경에 가려진다) -->
+            <div class="about_img">
+              <!-- data-* 속성 : data-main-exterior-banner
+                   property.images[].exterior[0] (히어로 슬라이더와 같은 소스의 첫 장) -->
+              <div class="parallax-window" data-parallax="scroll" data-main-exterior-banner></div>
+            </div>
+            <!--// about_img -->
+
+            <!-- s: main_landscape — 외경 갤러리 -->
+            <div class="main_landscape sub_inner">
+              <div class="sub_title">
+                <!-- 원본 view.html 의 고정 라벨. --font-en-main 필기체 50px 슬롯이다 -->
+                <h3>Landscape</h3>
+                <p data-property-caption="{name}의 아름다운 전경을 미리보기 하세요."></p>
+              </div>
+              <div class="room_list inner">
+                <div class="swiper-container_room">
+                  <!-- data-* 속성 : data-main-landscape-slides | 동적 매핑 필요
+                       main.about[].images[isSelected] 전체 -->
+                  <div class="swiper-wrapper" data-main-landscape-slides></div>
+                </div>
+                <div class="land_btm">
+                  <!-- sub1_2 규칙에 따라 display_view 만 노출된다.
+                       --font-en-main 필기체 100px 슬롯 — 원본 view.html 라벨을 그대로 쓴다 -->
+                  <strong class="display_view">Landscape</strong>
+                </div>
+              </div>
+            </div>
+            <!--// main_landscape -->
+
+            <!-- s: main_pic — 소개 블록 반복 + Welcome 밴드
+                 data-* 속성 : data-main-about-blocks | 동적 매핑 필요
+                 main.about[] 블록마다 .about_txt_box + .pic_box 한 쌍을 생성한다.
+                 (개수 가변 — t-template-D2 의 "블록당 1개" 규약과 동일)
+                 생성된 쌍은 아래 .txt_box(Welcome 밴드) 앞에 삽입되며,
+                 밴드는 페이지 맨 끝에 한 번만 노출된다.
+                 ⚠️ .pic_box 가 margin-top:-220px 로 바로 위 .about_txt_box 에 겹쳐 올라온다.
+                    문구가 없으면 .pic_box 에 .no-txt 를 붙여 겹침을 해제한다. -->
+            <div class="main_pic" data-main-about-blocks>
+              <!-- MAPPER: about[i] → .about_txt_box(strong+p) + .pic_box>.pic_list(img01~03) -->
+              <div class="txt_box">
+                <div class="sub_inner">
+                  <!-- data-* 속성 : data-index-closing-title
+                       index.closing.title → 폴백 "Welcome to {getPropertyNameEn()}" -->
+                  <strong data-index-closing-title></strong>
+                  <!-- data-* 속성 : data-index-closing-description
+                       index.closing.description → 폴백 CLOSING_FALLBACK_DESC_HTML -->
+                  <p data-index-closing-description></p>
+                </div>
+              </div>
+            </div>
+            <!--// main_pic -->
+          </div>
+          <!--// sub_cont -->
+        </section>
+      </div>
+
+      <div id="footer-wrap"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/data-mapper/pages/main-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/main.js"></script>
+  </body>
+</html>

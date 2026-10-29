@@ -1,0 +1,199 @@
+<header id="header" class="header">
+  <div class="hd_inner">
+    <!-- 로고: 원본 사이트와 동일하게 "텍스트" 로고다 (이미지 아님).
+         서체는 styles/theme.css 의 --font-en-main 으로 제어된다.
+         data-* 속성 : data-property-name-en (getPropertyNameEn()) / data-property-name (property.name) -->
+    <!-- data-* 속성 : data-header-logo — 헤더 로고 이미지 (pages.index.sections[0].gallery.images[isSelected][0])
+         원본 헤더가 이미지인 숙소만 크롤러가 채운다 (A형은 index.gallery 를 안 써서 이 칸을 빌린다).
+         이미지가 있으면 .logo / .logo2 에 .has-img → 텍스트 대신 이미지. 없으면 텍스트 그대로.
+         기본정보 로고(homepage.images[0].logo)는 쓰지 않는다 — 텍스트 헤더 숙소에도 올라가 있다.
+         <img> 는 매퍼가 만든다 (src="" 금지) -->
+    <div class="logo">
+      <a href="./index.html">
+        <b data-property-name-en></b>
+        <span data-property-name></span>
+      </a>
+      <a href="./index.html" class="logo_img" data-header-logo></a>
+    </div>
+    <div class="logo2">
+      <a href="./index.html" data-property-name-en></a>
+      <a href="./index.html" class="logo_img" data-header-logo></a>
+    </div>
+
+    <div class="hd_lnb" id="hd_lnb">
+      <ul class="hd_lnb01">
+        <li class="depth1">
+          <a href="./main.html" class="depth1_a">ABOUT</a>
+          <ul class="depth_box">
+            <li><a href="./main.html">펜션소개</a></li>
+          </ul>
+        </li>
+        <li class="depth1">
+          <!-- data-* 속성 : data-rooms-link (layoutMap 켜짐 → layout-map.html / 꺼짐 → 첫 객실 상세) -->
+          <a href="./layout-map.html" class="depth1_a" data-rooms-link>ROOMS</a>
+          <!-- data-* 속성 : data-rooms-submenu (ROOMS 서브메뉴 컨테이너) -->
+          <ul class="depth_box" data-rooms-submenu>
+            <!-- data-* 속성 : data-menu-id="layout-map" (layoutMap enabled=false 면 숨김) -->
+            <li><a href="./layout-map.html" data-menu-id="layout-map">미리보기</a></li>
+            <!-- MAPPER: roomtypes[] → <li><a href="./room.html?id={id}"> 동적 생성 -->
+          </ul>
+        </li>
+        <li class="depth1">
+          <a href="./facility.html" class="depth1_a">SPECIAL</a>
+          <!-- data-* 속성 : data-special-submenu (SPECIAL 서브메뉴 컨테이너) -->
+          <ul class="depth_box" data-special-submenu>
+            <!-- MAPPER: facilities[] → <li><a href="./facility.html?id={id}"> 동적 생성 -->
+          </ul>
+        </li>
+      </ul>
+      <ul class="hd_lnb02">
+        <li class="depth1">
+          <!-- data-* 속성 : data-booking-link (property.realtimeBookingId) -->
+          <a href="#!" class="depth1_a" target="_blank" data-booking-link>RESERVE</a>
+          <ul class="depth_box">
+            <li><a href="#!" target="_blank" data-booking-link>예약하기</a></li>
+            <li><a href="./reservation.html">이용안내</a></li>
+          </ul>
+        </li>
+        <!-- data-* 속성 : data-travel-menu (nearbyAttractions enabled=false 면 숨김) -->
+        <li class="depth1" data-travel-menu>
+          <a href="./nearby-attractions.html" class="depth1_a">TRAVEL</a>
+          <ul class="depth_box">
+            <li>
+              <a href="./nearby-attractions.html" data-menu-id="nearby-attractions">주변여행지</a>
+            </li>
+          </ul>
+        </li>
+        <li class="depth1">
+          <a href="./directions.html" class="depth1_a">LOCATION</a>
+          <ul class="depth_box">
+            <li><a href="./directions.html">오시는길</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 네이버 버튼 (원본 .btn_hd_res.naver — 예약하기 버튼 앞)
+         data-* 속성 : data-homepage-socialLinks-blog (homepage.socialLinks.blog, 네이버 플레이스 주소)
+         값이 없으면 래퍼(data-social-wrap)째 숨김. 매핑 전 깜빡임 방지로 기본은 숨김 상태다. -->
+    <div class="btn_hd_res naver" data-social-wrap style="display: none">
+      <a href="#!" target="_blank" rel="noopener" data-homepage-socialLinks-blog>
+        <img src="images/n_logo.png" alt="네이버" />
+      </a>
+    </div>
+    <!-- 인스타그램 버튼 (원본 A 에는 없음 → 네이버 버튼과 같은 로고 이미지 방식·크기, 네이버 바로 뒤)
+         data-* 속성 : data-homepage-socialLinks-instagram (homepage.socialLinks.instagram)
+         값이 없으면 래퍼(data-social-wrap)째 숨김. 기본은 숨김 상태다. -->
+    <div class="btn_hd_res insta" data-social-wrap style="display: none">
+      <a href="#!" target="_blank" rel="noopener" data-homepage-socialLinks-instagram>
+        <img src="images/insta_logo.png" alt="인스타그램" />
+      </a>
+    </div>
+    <div class="btn_hd_res">
+      <!-- data-* 속성 : data-booking-link -->
+      <a href="#!" target="_blank" data-booking-link>예약하기</a>
+    </div>
+    <div class="btn_menu">
+      <img src="images/menu_btn2.png" alt="메뉴버튼" />
+    </div>
+  </div>
+  <!--// hd_inner -->
+  <div class="hd_lnb_bg"></div>
+
+  <!-- 모바일 aside -->
+  <div class="aside">
+    <a href="#" class="btn_close" style="background-image: url('images/close.png')"></a>
+    <div class="aisde_inner">
+      <div class="aside_box">
+        <div class="depth1">ABOUT</div>
+        <ul class="depth_list">
+          <li><a href="./main.html">펜션소개</a></li>
+        </ul>
+
+        <div class="depth1">ROOMS</div>
+        <!-- data-* 속성 : data-rooms-submenu (모바일 ROOMS 서브메뉴) -->
+        <ul class="depth_list" data-rooms-submenu>
+          <li><a href="./layout-map.html" data-menu-id="layout-map">미리보기</a></li>
+          <!-- MAPPER: roomtypes[] 동적 생성 -->
+        </ul>
+
+        <div class="depth1">SPECIAL</div>
+        <!-- data-* 속성 : data-special-submenu (모바일 SPECIAL 서브메뉴) -->
+        <ul class="depth_list" data-special-submenu>
+          <!-- MAPPER: facilities[] 동적 생성 -->
+        </ul>
+
+        <div class="depth1">RESERVE</div>
+        <ul class="depth_list">
+          <li><a href="#!" target="_blank" data-booking-link>예약하기</a></li>
+          <li><a href="./reservation.html">이용안내</a></li>
+        </ul>
+
+        <!-- data-* 속성 : data-travel-menu (모바일 TRAVEL 대메뉴 + 서브메뉴 묶음) -->
+        <div class="depth1" data-travel-menu>TRAVEL</div>
+        <ul class="depth_list" data-travel-menu>
+          <li>
+            <a href="./nearby-attractions.html" data-menu-id="nearby-attractions">주변여행지</a>
+          </li>
+        </ul>
+
+        <div class="depth1">LOCATION</div>
+        <ul class="depth_list">
+          <li><a href="./directions.html">오시는길</a></li>
+        </ul>
+
+        <ul class="aside_btm">
+          <li class="aside_ico01">
+            <a href="./index.html" style="background-image: url('images/i3.png')">메인</a>
+          </li>
+          <!-- 네이버 (원본 aside_btm 메인·예약 사이 흰색 N 아이콘)
+               data-* 속성 : data-homepage-socialLinks-blog (값 없으면 li째 숨김, 기본 숨김) -->
+          <li class="aside_ico01" data-social-wrap style="display: none">
+            <a
+              href="#!"
+              target="_blank"
+              rel="noopener"
+              style="background-image: url('images/n_w_logo.png')"
+              data-homepage-socialLinks-blog
+            >
+              네이버
+            </a>
+          </li>
+          <!-- 인스타그램 (원본 A 에는 없음 → 네이버 아이콘과 같은 방식, 네이버 바로 뒤)
+               다른 aside 아이콘처럼 흰색 단색(insta_w_logo.png). 헤더 버튼은 컬러 로고(insta_logo.png) 그대로.
+               data-* 속성 : data-homepage-socialLinks-instagram (값 없으면 li째 숨김, 기본 숨김) -->
+          <li class="aside_ico01" data-social-wrap style="display: none">
+            <a
+              href="#!"
+              target="_blank"
+              rel="noopener"
+              style="background-image: url('images/insta_w_logo.png')"
+              data-homepage-socialLinks-instagram
+            >
+              인스타그램
+            </a>
+          </li>
+          <li class="aside_ico02">
+            <!-- data-* 속성 : data-booking-link -->
+            <a
+              href="#!"
+              target="_blank"
+              style="background-image: url('images/i1.png')"
+              data-booking-link
+            >
+              예약
+            </a>
+          </li>
+          <li class="aside_ico03">
+            <!-- data-* 속성 : data-footer-phone-link (property.contactPhone[0] → tel:) -->
+            <a href="tel:" style="background-image: url('images/i2.png')" data-footer-phone-link>
+              전화
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--// aside -->
+  <div class="aside_bg"></div>
+</header>

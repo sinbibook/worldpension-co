@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 placeholder 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title data-page-title>속초 월드 애견동반 (유료) 펜션 - 홈</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/popup.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속초 월드 애견동반 (유료) 펜션 - 홈" />
+  <meta property="og:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta property="og:url" content="https://worldpension.co.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="속초 월드 애견동반 (유료) 펜션 - 홈" />
+  <meta name="twitter:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta name="naver-site-verification" content="e06af8608527e39b2ae9b90f5edf19c917ea84be" />
+  <meta name="google-site-verification" content="Mgnk_J880xVKpN-zFjV7J69ZWFahx2Rwzp0V9rnMcJs" />
+</head>
+
+  <body oncontextmenu="return false;" onselectstart="return false" ondragstart="return false;">
+    <div id="wrap">
+      <div id="header-wrap"></div>
+
+      <div id="container">
+        <section id="content" class="main">
+          <!-- s: main_visual -->
+          <div class="main_visual visual">
+            <div class="main_txt_top">
+              <span>WELCOME TO PENSION</span>
+              <!-- data-* 속성 : data-index-hero-title
+                   index.hero.title → 폴백 getPropertyNameEn()
+                   ⚠️ .pic_title(아래) 과 다른 필드다. 원본에서 이 자리는 숙소 표시명이고
+                      .pic_title / room 배너 / Hello, / Welcome to 는 영문명이다.
+                      (경주 한옥스테이: 여기 "한옥 스테이 다락" / 저기 "HanokStayDarak") -->
+              <strong data-index-hero-title></strong>
+              <!-- data-* 속성 : data-index-hero-logo
+                   index.essence.images[isSelected][0] — 원본 히어로 문구 자리가 로고 이미지인 숙소용
+                   (A형은 essence 섹션을 안 써서 이 칸을 로고 칸으로 빌린다. 아그니초시매 title.png)
+                   이미지가 있으면 .main_txt_top.has-logo → WELCOME 줄·strong 대신 로고만 보인다.
+                   없으면 hidden 그대로라 지금 화면과 같다. <img> 는 매퍼가 만든다 (src="" 금지) -->
+              <div class="hero_logo" data-index-hero-logo hidden></div>
+              <!-- data-* 속성 : data-index-hero-description
+                   (pages.index.sections[0].hero.description → 폴백 property.subtitle) -->
+              <p data-index-hero-description></p>
+            </div>
+            <div class="arw_box">
+              <div class="arw_left"><img src="images/spe_le.png" alt="이전" /></div>
+              <div class="arw_right"><img src="images/spe_ri.png" alt="다음" /></div>
+            </div>
+            <a href="#" class="scroll_down"><img src="images/scroll_down.png" alt="스크롤" /></a>
+            <div class="main_visual_box">
+              <div class="swiper-container">
+                <!-- data-* 속성 : data-index-hero-slides | 동적 매핑 필요
+                     pages.index.sections[0].hero.images[isSelected] → 배경 슬라이드 -->
+                <div class="swiper-wrapper" data-index-hero-slides></div>
+              </div>
+            </div>
+          </div>
+          <!--// main_visual -->
+
+          <!-- s: main_room -->
+          <div class="main_room">
+            <div class="arw_box">
+              <div class="arw_left"><img src="images/spe_le.png" alt="이전" /></div>
+              <div class="arw_right"><img src="images/spe_ri.png" alt="다음" /></div>
+            </div>
+            <div class="room_list">
+              <div class="main_title">
+                <h3>Room's Preview</h3>
+                <!-- data-* 속성 : data-property-caption ({name} → property.name) -->
+                <p data-property-caption="{name}의 객실을 소개합니다."></p>
+              </div>
+              <div class="swiper-container_special">
+                <!-- data-* 속성 : data-index-room-slides | 동적 매핑 필요
+                     customFields.roomtypes[] × rooms[] id 매칭 -->
+                <div class="swiper-wrapper" data-index-room-slides></div>
+              </div>
+            </div>
+          </div>
+          <!--// main_room -->
+
+          <!-- s: main_spe -->
+          <div class="main_spe">
+            <div class="main_title">
+              <h3>Special Point</h3>
+              <p data-property-caption="{name}의 특장점을 확인해보세요."></p>
+            </div>
+            <!-- data-* 속성 : data-index-special-list | 동적 매핑 필요
+                 property.facilities[] → .parallax-window[data-image-src] -->
+            <div class="spe_list" data-index-special-list></div>
+          </div>
+          <!--// main_spe -->
+
+          <!-- s: main_landscape -->
+          <div class="main_landscape inner">
+            <div class="main_title">
+              <h3>Healing Place</h3>
+              <p data-property-caption="{name}에서 기분 좋은 휴식을 선물해드립니다."></p>
+            </div>
+            <div class="room_list inner">
+              <div class="swiper-container_room">
+                <!-- data-* 속성 : data-index-landscape-slides | 동적 매핑 필요
+                     pages.main.sections[0].hero.images[isSelected] (구 외경보기 이미지) -->
+                <div class="swiper-wrapper" data-index-landscape-slides></div>
+              </div>
+              <div class="land_btm">
+                <strong class="display_view">Landscape</strong>
+                <strong class="display_main">Memories...</strong>
+                <p
+                  class="display_main"
+                  data-property-caption="조용하고 편안한 시간을 보낼 수 있는\n{name}"
+                ></p>
+              </div>
+            </div>
+          </div>
+          <!--// main_landscape -->
+
+          <!-- s: main_pic -->
+          <div class="main_pic">
+            <div class="pic_box">
+              <!-- data-* 속성 : data-index-closing-images | 동적 매핑 필요
+                   pages.index.sections[0].closing.images[isSelected][0..2] -->
+              <div class="pic_list" data-index-closing-images>
+                <div class="img01"></div>
+                <div class="img02"></div>
+                <div class="img03"></div>
+              </div>
+            </div>
+            <div class="txt_box">
+              <!-- data-* 속성 : data-property-name-en (getPropertyNameEn()) -->
+              <h3 class="pic_title" data-property-name-en></h3>
+              <div class="inner">
+                <!-- data-* 속성 : data-index-closing-title (closing.title) -->
+                <strong data-index-closing-title></strong>
+                <!-- data-* 속성 : data-index-closing-description (closing.description, \n→<br>) -->
+                <p data-index-closing-description></p>
+              </div>
+            </div>
+          </div>
+          <!--// main_pic -->
+        </section>
+      </div>
+
+      <div id="footer-wrap"></div>
+    </div>
+
+    <!-- 팝업 (index.html 전용) -->
+    <div id="popup-container"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/data-mapper/pages/index-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/index.js"></script>
+    <script src="js/popup.js"></script>
+  </body>
+</html>

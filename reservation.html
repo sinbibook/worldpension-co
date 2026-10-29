@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 placeholder 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title data-page-title>속초 월드 애견동반 (유료) 펜션 - 예약안내</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속초 월드 애견동반 (유료) 펜션 - 예약안내" />
+  <meta property="og:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta property="og:url" content="https://worldpension.co.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="속초 월드 애견동반 (유료) 펜션 - 예약안내" />
+  <meta name="twitter:description" content="속초해수욕장 도보 1분 거리에 위치한 속초 월드 펜션입니다. 사랑하는 가족,연인,친구,반려견과 즐거운 여행을 보내세요." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/15/P1LGSQpCfDXr.jpg" />
+  <meta name="naver-site-verification" content="e06af8608527e39b2ae9b90f5edf19c917ea84be" />
+  <meta name="google-site-verification" content="Mgnk_J880xVKpN-zFjV7J69ZWFahx2Rwzp0V9rnMcJs" />
+</head>
+
+  <body oncontextmenu="return false;" onselectstart="return false" ondragstart="return false;">
+    <div id="wrap">
+      <div id="header-wrap"></div>
+
+      <div id="container">
+        <!-- 원본 reservation.html (이용안내) -->
+        <section id="content" class="sub4_1 sub_reserve">
+          <!-- data-* 속성 : data-reservation-hero-image
+               pages.reservation.sections[0].hero.images[isSelected][0].url (background-image) -->
+          <div class="sub_visual" data-reservation-hero-image>
+            <div class="txt_box">
+              <h3>RESERVE</h3>
+              <!-- data-* 속성 : data-property-caption ({name} → property.name) -->
+              <span data-property-caption="{name} 이용안내"></span>
+            </div>
+          </div>
+          <!--// sub_visual -->
+
+          <div class="sub_cate_wrap">
+            <div class="sub_inner">
+              <ul>
+                <!-- data-* 속성 : data-booking-url (property.realtimeBookingId) -->
+                <li><a href="#!" target="_blank" data-booking-url>예약하기</a></li>
+                <li class="on"><a href="./reservation.html">이용안내</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub_cont sub_inner">
+            <div class="reserve_info">
+              <div class="sub_title3">
+                <h3>Information</h3>
+              </div>
+              <dl>
+                <dt>펜션정보</dt>
+                <!-- data-* 속성 : data-reservation-info
+                     property.usageGuide -->
+                <dd data-reservation-info></dd>
+              </dl>
+            </div>
+
+            <div class="reserve_info">
+              <div class="sub_title3">
+                <h3>Refund Info</h3>
+              </div>
+              <dl>
+                <dt>환불정보</dt>
+                <!-- data-* 속성 : data-reservation-refund-policies
+                     property.refundPolicies (동적 생성) -->
+                <dd data-reservation-refund-policies></dd>
+              </dl>
+            </div>
+          </div>
+          <!--// sub_cont -->
+        </section>
+      </div>
+
+      <div id="footer-wrap"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/data-mapper/pages/reservation-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/reservation.js"></script>
+  </body>
+</html>
