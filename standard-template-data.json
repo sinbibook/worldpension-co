@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.1.0",
-    "generatedAt": "2026-11-12T06:51:54.366987424Z",
+    "version": "1.2.0",
+    "generatedAt": "2026-11-13T00:06:11.133149013Z",
     "templateType": "trip_a",
     "propertyId": "4de0014d-5d96-444e-8cd6-4f95e7c42e1b",
     "homepageId": "01a186ca-370c-78ac-9cec-7e54a95c6707"
@@ -16,7 +16,7 @@
     "latitude": 38.1862636944136,
     "longitude": 128.60459275157,
     "contactPhone": [
-      "070-4376-6425"
+      "010-4850-5953"
     ],
     "contactEmail": "",
     "checkin": "15:00",
@@ -3225,7 +3225,8 @@
       ],
       "footer": {
         "ruralStayMark": null,
-        "ruralStayMarks": [ ]
+        "ruralStayMarks": [ ],
+        "partnerPhoneExposed": true
       }
     }
   }
