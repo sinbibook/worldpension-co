@@ -148,10 +148,29 @@
   // MAPPER: facilities[current].images → 교차 배너 2장 + 와이드 1장
   // 원본 레이아웃이 li 2개 + 와이드 1개 고정이라 개수를 늘리지 않는다.
   // 나머지 이미지는 히어로 슬라이더에서 전부 노출된다.
+  // 1장뿐이면 원본 special7.html 처럼 그 1장을 자르지 않고 높이 그대로 한 칸에 보여준다
+  // (교차 배너에 같은 사진 + 빈 placeholder 가 섞여 나오던 문제).
   FacilityMapper.prototype.mapImages = function (facility) {
     var self = this;
     var images = this.getSelectedImages((facility && facility.images) || []);
     if (!images.length && facility && facility.images) images = facility.images.slice();
+
+    var single = images.length === 1 && !!images[0].url;
+    document
+      .querySelectorAll('[data-special-images], [data-special-wide-box]')
+      .forEach(function (el) {
+        el.style.display = single ? 'none' : '';
+      });
+    document.querySelectorAll('[data-special-single-image]').forEach(function (el) {
+      el.innerHTML = '';
+      el.style.display = single ? '' : 'none';
+      if (!single) return;
+      var img = document.createElement('img');
+      img.src = images[0].url;
+      img.alt = self.cleanText(facility && facility.name) || '부대시설 이미지';
+      el.appendChild(img);
+    });
+    if (single) return;
 
     document.querySelectorAll('[data-special-images]').forEach(function (ul) {
       Array.prototype.slice.call(ul.children).forEach(function (li, i) {

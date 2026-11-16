@@ -167,9 +167,10 @@
 .header .logo2.is-xlong a {
   font-size: 26px;
 }
-/* 헤더 로고 이미지 — index.gallery 이미지가 있을 때만 (.has-img, header-footer-mapper mapHeaderLogo).
-   없으면 .logo_img 가 숨겨져 지금 텍스트 헤더와 같다.
+/* 헤더 로고 이미지 — index.gallery 이미지, 없으면 기본정보 로고 (.has-img, header-footer-mapper mapHeaderLogo).
+   둘 다 없으면 .logo_img 가 숨겨져 텍스트 헤더다.
    로고 한 장으로 두 자리: 투명 헤더(.logo)는 흰색 반전, 흰 배경(.logo2 = 스크롤·860 이하)은 원래 색.
+   기본정보 로고(.is-basic-logo)는 대부분 흰색이라 흰 배경에서 어둡게 칠한다.
    크기는 원본(아그니초시매 200×80, 860 이하 높이 50) 기준 */
 .header .logo .logo_img,
 .header .logo2 .logo_img,
@@ -195,6 +196,9 @@
 }
 .header .logo2 .logo_img img {
   max-width: 260px;
+}
+.header .logo2.is-basic-logo .logo_img img {
+  filter: brightness(0);
 }
 .header .hd_sns_btn {
   display: none;
@@ -1629,6 +1633,10 @@
   font-weight: 400;
   letter-spacing: -0.02em;
 }
+/* SPECIAL 만 시설명(한글)이 들어온다. room·about 의 strong 은 정적 영문이라 필기체 그대로 */
+.sub_special .sub_visual_wide .main_txt_top strong {
+  font-family: var(--font-ko-main);
+}
 .sub_visual_wide .main_txt_top p {
   font-size: 16px;
   line-height: 1.375;
@@ -2694,6 +2702,13 @@
 }
 .month_img {
   text-align: center;
+}
+.month_img img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 860px) {

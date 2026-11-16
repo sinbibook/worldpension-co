@@ -294,14 +294,15 @@ property.images[] 중 category === 'property_exterior'  (평탄형)
 | `.logo`  | 헤더 중앙 | 42px, 흰색, 2줄                     | `nameEn` + `<span>` `name` |
 | `.logo2` | 헤더 좌측 | 40px, `var(--color-secondary)`, 1줄 | `nameEn`                   |
 
-서체는 `--font-en-main` 하나로 제어된다. 로고 이미지(`homepage.images[0].logo`)는 **파비콘 주입에만** 쓴다.
+서체는 `--font-en-main` 하나로 제어된다. 로고 이미지가 있으면 텍스트 대신 이미지가 나간다 (아래).
 
-### 헤더 로고 이미지 — `index.gallery` 칸 (원본 헤더가 이미지인 숙소만)
+### 헤더 로고 이미지 — `index.gallery` 칸, 없으면 기본정보 로고
 
 원본 헤더가 이미지인 숙소(아그니초시매·에벤에셀펜션·자연과사람들)는 크롤러가 그 로고를 `pages.index.sections[0].gallery.images` 에 넣는다.
-A형은 `index.gallery` 를 안 써서 헤더 로고 칸으로 빌린다. 이 칸에 선택된 이미지가 있으면 `.logo` / `.logo2` 에 `.has-img` 가 붙어 텍스트 대신 이미지가 나가고, 비어 있으면 텍스트 그대로다.
+A형은 `index.gallery` 를 안 써서 헤더 로고 칸으로 빌린다. 이 칸이 비어 있으면 기본정보 로고(`homepage.images[0].logo`)를 쓴다. 이미지가 있으면 `.logo` / `.logo2` 에 `.has-img` 가 붙어 텍스트 대신 이미지가 나가고, 둘 다 없으면 텍스트 그대로다.
 
-- **기본정보 로고로 판단하지 않는다.** 2026-10 기준 기본정보 로고가 있는 A형 8곳 중 6곳이 원본 헤더가 텍스트다(파비콘·푸터용 업로드). 기본정보 로고로 바꾸면 이 숙소들 헤더가 바뀐다.
+- **`index.gallery` 를 먼저 읽는다.** 크롤된 기본정보 로고는 대부분 원본 `.logo` 의 흰 로고이고 `index.gallery` 는 `.logo2` 의 원래 색 로고다. 그래서 두 칸이 다 차 있는 숙소에서 기본정보 로고만 바꾸면 헤더는 바뀌지 않는다(파비콘은 바뀐다).
+- **기본정보 로고는 `.logo2` 에서 검게 칠한다** (`.is-basic-logo`, `filter: brightness(0)`). 흰 로고가 흰 배경에서 사라지기 때문이다. 컬러 로고를 올려도 스크롤·모바일 헤더에서는 검은색으로 나온다.
 - **로고 한 장으로 두 자리** (E2 와 같은 방식). 원본은 흰 로고(`.logo`) + 어두운·컬러 로고(`.logo2`) 두 장인데 크롤러는 `.logo2`(원래 색)를 우선해 한 장만 넣는다.
 
 | 자리      | 보이는 때                        | 표시                                 | 크기                          |
@@ -331,7 +332,7 @@ A형은 `index.gallery` 를 안 써서 헤더 로고 칸으로 빌린다. 이 �
 | ------------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
 | `data-property-name-en`               | `.logo a b`, `.logo2 a`                                                        | `getPropertyNameEn()`                                                                                           |
 | `data-property-name`                  | `.logo a span`                                                                 | `property.name`                                                                                                 |
-| `data-header-logo`                    | `.logo .logo_img`, `.logo2 .logo_img`                                          | `index.gallery.images[isSelected][0]` — 있으면 텍스트 대신 이미지 (위 "헤더 로고 이미지" 참조)                   |
+| `data-header-logo`                    | `.logo .logo_img`, `.logo2 .logo_img`                                          | `index.gallery.images[isSelected][0]`, 없으면 기본정보 로고 — 있으면 텍스트 대신 이미지 (위 "헤더 로고 이미지" 참조)                   |
 | `data-rooms-submenu`                  | ROOMS `.depth_box` + aside `.depth_list`                                       | `customFields.roomtypes[]` → `./room.html?room_id={id}` (동적 생성, `미리보기` li 뒤)                           |
 | `data-special-submenu`                | SPECIAL `.depth_box` + aside                                                   | `property.facilities[]` → `./facility.html?id={id}` (컨테이너 비우고 동적 생성)                                 |
 | `data-booking-link`                   | RESERVE / 예약하기 / `.btn_hd_res` / `.aside_ico02`                            | `property.realtimeBookingId` (`getBookingUrl()`, href 직접 주입)                                                |
@@ -373,7 +374,8 @@ A형은 `index.gallery` 를 안 써서 헤더 로고 칸으로 빌린다. 이 �
 | `data-footer-representative`  | 대표자 `<span>`                    | `property.businessInfo.representativeName`                                |
 | `data-footer-business-number` | 사업자번호 `<span>`                | `property.businessInfo.businessNumber`                                    |
 | `.privacy` (첫 번째)          | 개인정보처리방침 `<a>`             | 정적 — `http://design.trip11.net/privacy/privacy_policy.html` (원본과 동일) |
-| `data-ybs-button`             | 야놀자 YBS `<a>`                   | `property.ybsId` (없으면 YBS `.privacy` 박스만 숨김)                      |
+| `data-ybs-button`             | 야놀자 YBS `<a>` (푸터) · 헤더 YBS 버튼 · aside YBS 아이콘 | `property.ybsId` (없으면 숨김). 헤더 버튼은 다른 헤더 버튼처럼 스크롤 헤더(`.header.on`)에서만 보인다 — 원본 gagopaps.kr 배치. aside 아이콘은 `images/reser_w.png`(gagopaps 원본) |
+| `data-ybs-wrap`               | 헤더 `.btn_hd_res.ybs` · aside `li` | YBS 없으면 래퍼째 숨김(기본 숨김)                                        |
 | `data-booking-link`           | `.ft_btn_reserve` 실시간 예약 버튼 | `property.realtimeBookingId`                                              |
 | `.copy`                       | 카피라이트 문구                    | `property.tripProviderName` → 없으면 정적 문구                    |
 
