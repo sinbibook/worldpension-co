@@ -111,10 +111,15 @@
                 <li class="img"></li>
               </ul>
 
-              <div class="sub_img_box_wide">
+              <div class="sub_img_box_wide" data-special-wide-box>
                 <!-- data-* 속성 : data-special-wide-image -->
                 <div class="img" data-special-wide-image></div>
               </div>
+
+              <!-- data-* 속성 : data-special-single-image
+                   시설 이미지가 1장이면 위 교차 배너·와이드 대신 이 칸만 쓴다.
+                   원본 special7.html(.month_img) 처럼 자르지 않고 원본 비율 그대로 노출 -->
+              <div class="month_img" data-special-single-image style="display: none"></div>
             </div>
           </div>
           <!--// sub_cont -->

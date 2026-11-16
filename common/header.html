@@ -5,8 +5,8 @@
          data-* 속성 : data-property-name-en (getPropertyNameEn()) / data-property-name (property.name) -->
     <!-- data-* 속성 : data-header-logo — 헤더 로고 이미지 (pages.index.sections[0].gallery.images[isSelected][0])
          원본 헤더가 이미지인 숙소만 크롤러가 채운다 (A형은 index.gallery 를 안 써서 이 칸을 빌린다).
-         이미지가 있으면 .logo / .logo2 에 .has-img → 텍스트 대신 이미지. 없으면 텍스트 그대로.
-         기본정보 로고(homepage.images[0].logo)는 쓰지 않는다 — 텍스트 헤더 숙소에도 올라가 있다.
+         없으면 기본정보 로고(homepage.images[0].logo) → .logo2 에 .is-basic-logo (흰 로고를 어둡게 칠한다).
+         이미지가 있으면 .logo / .logo2 에 .has-img → 텍스트 대신 이미지. 둘 다 없으면 텍스트 그대로.
          <img> 는 매퍼가 만든다 (src="" 금지) -->
     <div class="logo">
       <a href="./index.html">
@@ -93,6 +93,13 @@
       <!-- data-* 속성 : data-booking-link -->
       <a href="#!" target="_blank" data-booking-link>예약하기</a>
     </div>
+    <!-- YBS 버튼 (원본 gagopaps.kr — 예약하기 오른쪽, 같은 버튼 스타일)
+         data-* 속성 : data-ybs-button / data-ybs-wrap (property.ybsId)
+         값이 없으면 래퍼째 숨김(기본 숨김). 값이 있으면 매퍼가 인라인 숨김만 풀고
+         노출은 다른 헤더 버튼처럼 CSS 가 정한다 — 최상단 숨김, 스크롤 헤더(.header.on)에서 노출. -->
+    <div class="btn_hd_res ybs" data-ybs-wrap style="display: none">
+      <a href="#!" target="_blank" data-ybs-button>YBS</a>
+    </div>
     <div class="btn_menu">
       <img src="images/menu_btn2.png" alt="메뉴버튼" />
     </div>
@@ -143,6 +150,18 @@
         </ul>
 
         <ul class="aside_btm">
+          <!-- YBS (원본 gagopaps.kr aside_btm 맨 앞 아이콘 — 같은 reser_w.png, background-size 75%)
+               data-* 속성 : data-ybs-button / data-ybs-wrap (property.ybsId — 없으면 li째 숨김, 기본 숨김) -->
+          <li class="aside_ico01" data-ybs-wrap style="display: none">
+            <a
+              href="#!"
+              target="_blank"
+              style="background-image: url('images/reser_w.png'); background-size: 75%"
+              data-ybs-button
+            >
+              YBS
+            </a>
+          </li>
           <li class="aside_ico01">
             <a href="./index.html" style="background-image: url('images/i3.png')">메인</a>
           </li>

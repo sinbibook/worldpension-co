@@ -1,8 +1,9 @@
 <div class="footer_wrap">
   <div class="footer">
-    <!-- data-* 속성 : data-footer-rural-stay-mark-wrap (customFields.footer.ruralStayMark 가 있을 때만 노출, 기본 숨김)
+    <!-- data-* 속성 : data-footer-rural-stay-mark-wrap (customFields.footer.ruralStayMarks 또는 기존 ruralStayMark 가 있을 때만 노출, 기본 숨김)
          data-footer-rural-stay-mark : 농어촌민박사업자 이미지 (표시마크 + 신고번호, alt = description) -->
     <div class="ft_rural_stay_mark_wrap" data-footer-rural-stay-mark-wrap style="display: none">
+      <img class="ft_rural_stay_mark" src="" alt="농어촌민박사업자" data-footer-rural-stay-mark />
       <img class="ft_rural_stay_mark" src="" alt="농어촌민박사업자" data-footer-rural-stay-mark />
     </div>
     <!-- data-* 속성 : data-footer-phone (번호 텍스트) / data-footer-phone-link (tel: 링크)
@@ -45,6 +46,7 @@
   <p class="copy" data-copyright="COPYRIGHT©{provider}. ALL RIGHTS RESERVED.">COPYRIGHT©트립일레븐. ALL RIGHTS RESERVED.</p>
   <!-- 개인정보처리방침 : 원본(jejuinhouse · 삼척동해펜션)과 같은 트립일레븐 공용 약관 고정 링크.
        숙소별 값이 아니라 매핑하지 않는다 (D · F · G 등 다른 템플릿과 같은 URL) -->
+  <div class="privacy" data-calendar-wrap style="display: none"><a href="#" target="_blank" rel="noopener noreferrer" data-calendar-link>실시간 달력</a></div>
   <div class="privacy"><a href="http://design.trip11.net/privacy/privacy_policy.html" target="_blank">개인정보처리방침</a></div>
   <!-- data-* 속성 : data-ybs-button (property.ybsId / 없으면 숨김) -->
   <div class="privacy"><a href="#!" target="_blank" data-ybs-button>야놀자 YBS</a></div>
